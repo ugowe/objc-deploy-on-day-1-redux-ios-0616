@@ -10,10 +10,10 @@
 
 @interface FISTicTacToeGame : NSObject
 
-// advanced: persist these across runs of the app
 @property (nonatomic, assign) NSUInteger xPlayerWinCount;
 @property (nonatomic, assign) NSUInteger oPlayerWinCount;
 
+-(void)resetBoard;
 
 -(NSString *)playerAtColumn:(NSUInteger)column row:(NSUInteger)row;
 
@@ -24,7 +24,5 @@
 
 -(BOOL)isADraw;
 -(NSString *)winningPlayer;
-
--(void)resetBoard;
 
 @end
