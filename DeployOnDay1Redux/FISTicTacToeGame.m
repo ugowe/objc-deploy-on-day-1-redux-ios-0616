@@ -23,7 +23,7 @@
     if(self) {
         // Do initialization of your game here, inside this if statement.
         // Leave the rest of this method alone :)
-        
+
     }
 
     return self;
