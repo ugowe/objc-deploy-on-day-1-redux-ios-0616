@@ -34,7 +34,7 @@ The UI has already been built for you -- we don't expect you to understand UI st
 * `-init` is responsible for setting up new games. This method should make sure the board is initialized as empty, however you decide to do that.
     * Think about how best to represent your board -- it's a 3x3 grid, where each space can be empty, "X", or "O". What sort of data structure that you know might work? Don't forget that the basic data structures can be nested if need be!
     * **Hint**: is there another method whose job it is to clear the board? Could you just call that from here?
-    * **Hint**: you may want to use the `board` property we declared for you (accessed by `self.board`), but if you wnat to go with a different approach, feel free.
+    * **Hint**: you may want to use the `board` property we declared for you (accessed by `self.board`), but if you want to go with a different approach, feel free.
 
 * `-resetBoard` should clear the game board of all player moves, so that a new game can begin.
 
