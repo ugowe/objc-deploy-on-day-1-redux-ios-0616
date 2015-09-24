@@ -17,7 +17,7 @@ The UI has already been built for you -- we don't expect you to understand UI st
 ## Tips
 
 * Don't get bogged down in git (if you choose to use it)
-    * Many of you will want to know the right way to do it, but however your team decides they want to tackle things **is** the right way today.
+* Many of you will want to know the right way to do it, but however your team decides they want to tackle things **is** the right way today.
 * The most important things are getting something working and learning to work as a team. There really are no wrong answers. 
 * Keep in mind that you don't need to build things in the order they are presented below! Start with the easiest possible thing that begins to attack the problem, and build from there.
 * Run early, run often! Constantly be running the app to see how your code is behaving.
@@ -32,8 +32,9 @@ The UI has already been built for you -- we don't expect you to understand UI st
 4. Open up `FISTicTacToeGame.m`. This is where you'll be doing most of your work. Your job is to implement the methods in there. You'll note that there are already implementations for some of the methods, but they're not exactly smart. Let's look at each method in turn and what it's supposed to do:
 
 * `-init` is responsible for setting up new games. This method should make sure the board is initialized as empty, however you decide to do that.
+    * Think about how best to represent your board -- it's a 3x3 grid, where each space can be empty, "X", or "O". What sort of data structure that you know might work? Don't forget that the basic data structures can be nested if need be!
     * **Hint**: is there another method whose job it is to clear the board? Could you just call that from here?
-    * **Hint**: you may want to use the `board` property we declared for you (accessed by `self.board`).
+    * **Hint**: you may want to use the `board` property we declared for you (accessed by `self.board`), but if you wnat to go with a different approach, feel free.
 
 * `-resetBoard` should clear the game board of all player moves, so that a new game can begin.
 
@@ -44,10 +45,10 @@ The UI has already been built for you -- we don't expect you to understand UI st
 
 * `-playXAtColumn:row:` and `-playOAtColumn:row:` should place the specified piece at the given position on the board. These methods are called in response to the user clicking on valid spaces on the board.
 
-* `-winningPlayer` is called after every turn is completed. It should check if the board currently has a winner, and return "X", "O", or "" (no winner) as appropriate.
-    * **Hint**: This is probably the hardest part of this challenge. Think about what the rules of tic-tac-toe mean, and how that translates into statements about your board property.
+* `-winningPlayer` is called after every turn is completed. It should check if the board currently has a winner, and return "X", "O", or "" (the empty string, meaning no winner) as appropriate.
+    * **Hint**: This is probably the hardest part of this challenge. Think about the rules of tic-tac-toe, and how those translate into statements about how your board is stored. Don't worry about being clever from the start -- do the simplest thing that could possibly work, then worry about cleaning it up.
 
-* `-isADraw` is called after every turn is completed, if `-winningPlayer` returns no winner. It should return `YES` if the board is in a draw state (that is, the board is full, and no player has won).
+* `-isADraw` is called after every turn is completed, if `-winningPlayer` returns no winner. It should return `YES` if the game is a draw (that is, the board is full, and no player has won).
 
 
 
@@ -64,7 +65,7 @@ Finished the game, did you? Let's add some cool features. Here are some options:
     * From there, the sky's the limit. In perfect play, tic-tac-toe always ends in a draw. Can you make an unbeatable AI?
 
 * It sure would be nice if the win records persisted between games, and even launches of the app. Figure out how to store and retrieve the `xPlayerWinCount` and `oPlayerWinCount` properties of `FISTicTacToeGame` in a persistent fashion.
-    * **Hint**: look into overriding getters and setters, and `NSUserDefaults`.
+    * **Hint**: look into `NSUserDefaults`, and maybe overriding getters and setters.
 
 * Optimize and simplify your `-winningPlayer` and `-isADraw` methods. Does the game actually need to finish for these to determine their return value? Can you utilize loops in a clever way to make the code shorter and less repetitive?
 

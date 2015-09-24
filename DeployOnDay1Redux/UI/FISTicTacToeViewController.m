@@ -222,7 +222,7 @@
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to exit?" message:@"The current game will be lost forever!" preferredStyle:UIAlertControllerStyleActionSheet];
 
-    [alert addAction:[UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
         self.gameIsCanceled = YES;
         [self.currentPlayer cancelPlay];
         [self.navigationController popViewControllerAnimated:YES];
