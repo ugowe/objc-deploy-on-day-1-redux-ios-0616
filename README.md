@@ -70,3 +70,5 @@ Finished the game, did you? Let's add some cool features. Here are some options:
 * Optimize and simplify your `-winningPlayer` and `-isADraw` methods. Does the game actually need to finish for these to determine their return value? Can you utilize loops in a clever way to make the code shorter and less repetitive?
 
 * If you're interested in the UI, poke around in the `UI` group in the Xcode project. The `Main.storyboard` file is where most of the layout stuff happens. Change some colors and fonts! Move some stuff around! We'll be diving into interface in a serious way shortly.
+
+<a href='https://learn.co/lessons/objc-deploy-on-day-1-redux' data-visibility='hidden'>View this lesson on Learn.co</a>
