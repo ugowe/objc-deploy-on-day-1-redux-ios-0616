@@ -71,4 +71,4 @@ Finished the game, did you? Let's add some cool features. Here are some options:
 
 * If you're interested in the UI, poke around in the `UI` group in the Xcode project. The `Main.storyboard` file is where most of the layout stuff happens. Change some colors and fonts! Move some stuff around! We'll be diving into interface in a serious way shortly.
 
-<a href='https://learn.co/lessons/objc-deploy-on-day-1-redux' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/objc-deploy-on-day-1-redux' title='Deploy on Day 1 redux'>Deploy on Day 1 redux</a> on Learn.co and start learning to code for free.</p>
