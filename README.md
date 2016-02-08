@@ -46,9 +46,10 @@ The UI has already been built for you -- we don't expect you to understand UI st
 * `-playXAtColumn:row:` and `-playOAtColumn:row:` should place the specified piece at the given position on the board. These methods are called in response to the user clicking on valid spaces on the board.
 
 * `-winningPlayer` is called after every turn is completed. It should check if the board currently has a winner, and return "X", "O", or "" (the empty string, meaning no winner) as appropriate.
-    * **Hint**: This is probably the hardest part of this challenge. Think about the rules of tic-tac-toe, and how those translate into statements about how your board is stored. Don't worry about being clever from the start -- do the simplest thing that could possibly work, then worry about cleaning it up.
+    * **Hint**: This is probably the hardest part of this challenge. Think about the rules of tic-tac-toe, and how those translate into statements about how your board is stored. Don't worry about being clever from the start -- do the simplest thing that could possibly work, then worry about cleaning it up. (That also goes for detecting a winner before the board is full — you can save that for later!)
 
 * `-isADraw` is called after every turn is completed, if `-winningPlayer` returns no winner. It should return `YES` if the game is a draw (that is, the board is full, and no player has won).
+    * **Hint**: This method can actually be pretty complicated (you can detect a draw a few turns before the board is full). For now, just stick with a naive solution — return `YES` if the board is full and there is no winner.
 
 
 
