@@ -44,6 +44,7 @@ The UI has already been built for you -- we don't expect you to understand UI st
     * **Hint**: Under the rules of tic-tac-toe, what makes a position a valid place to play? Is there another method you can use to implement this one?
 
 * `-playXAtColumn:row:` and `-playOAtColumn:row:` should place the specified piece at the given position on the board. These methods are called in response to the user clicking on valid spaces on the board.
+    * **Heads up**: the guts of the game will not call these methods unless `-canPlayAtColumn:row:` returns `YES` for the given position. 
 
 * `-winningPlayer` is called after every turn is completed. It should check if the board currently has a winner, and return "X", "O", or "" (the empty string, meaning no winner) as appropriate.
     * **Hint**: This is probably the hardest part of this challenge. Think about the rules of tic-tac-toe, and how those translate into statements about how your board is stored. Don't worry about being clever from the start -- do the simplest thing that could possibly work, then worry about cleaning it up. (That also goes for detecting a winner before the board is full — you can save that for later!)
