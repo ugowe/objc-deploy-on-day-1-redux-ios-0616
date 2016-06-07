@@ -23,7 +23,9 @@
     if(self) {
         // Do initialization of your game here, inside this if statement.
         // Leave the rest of this method alone :)
-
+        
+        
+        [self resetBoard];
     }
 
     return self;
@@ -31,37 +33,85 @@
 
 -(void)resetBoard
 {
-
+    self.board = [@[ [@[ @"", @"", @"" ] mutableCopy],
+                     [@[ @"", @"", @"" ] mutableCopy],
+                     [@[ @"", @"", @"" ] mutableCopy] ] mutableCopy];
 }
 
 -(NSString *)playerAtColumn:(NSUInteger)column row:(NSUInteger)row
 {
-    return @"";
+    return self.board[column][row];
 }
 
 -(BOOL)canPlayAtColumn:(NSUInteger)column row:(NSUInteger)row
 {
-    return YES;
+    return [[self playerAtColumn:column row:row] isEqualToString:@""];
 }
 
 -(void)playXAtColumn:(NSUInteger)column row:(NSUInteger)row
 {
-
+    self.board[column][row] = @"X";
 }
 
 -(void)playOAtColumn:(NSUInteger)column row:(NSUInteger)row
 {
-
+    self.board[column][row] = @"O";
 }
 
 -(NSString *)winningPlayer
 {
+    typedef struct {
+        NSUInteger column;
+        NSUInteger row;
+        } BoardPosition;
+    
+
+    BoardPosition winningCombos[][3] = {
+        // Winning by rows
+        {{0, 0}, {1, 0}, {2, 0}},
+        {{0, 1}, {1, 1}, {2, 1}},
+        {{0, 2}, {1, 2}, {2, 2}},
+        
+        // Winning by columns
+        {{0, 0}, {0, 1}, {0, 2}},
+        {{1, 0}, {1, 1}, {1, 2}},
+        {{2, 0}, {2, 1}, {2, 2}},
+
+
+        // Winning by diagonals
+        {{0, 0}, {1, 1}, {2, 2}},
+        {{2, 0}, {1, 1}, {0, 2}}
+        };
+
+    for(NSUInteger comboIndex = 0; comboIndex < 8; comboIndex++) {
+        NSMutableArray *playersAtComboPositions = [[NSMutableArray alloc] init];
+
+        for(NSUInteger positionIndex = 0; positionIndex < 3; positionIndex++) {
+            BoardPosition position = winningCombos[comboIndex][positionIndex];
+            [playersAtComboPositions addObject:[self playerAtColumn:position.column row:position.row]];
+            }
+
+        if([playersAtComboPositions[0] isEqualToString:playersAtComboPositions[1]] &&
+                    [playersAtComboPositions[1] isEqualToString:playersAtComboPositions[2]] &&
+                    [playersAtComboPositions[0] length])
+            {
+                return playersAtComboPositions[0];
+                }
+        }
+
     return @"";
 }
 
 -(BOOL)isADraw
 {
-    return NO;
+    for (NSUInteger column = 0; column < 3; column++) {
+        for(NSUInteger row = 0; row < 3; row++) {
+            if([self playerAtColumn:column row:row].length == 0) {
+                return NO;
+            }
+        }
+    }
+    return YES;
 }
 
 @end
